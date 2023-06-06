@@ -95,16 +95,16 @@ export class UsersService {
     return null;
   }
 
-  async searchForUsers(text: string) {
-    const results = await this.usersSearchService.search(text);
-    const ids = results.map(result => result.id);
-    if (!ids.length) {
-      return [];
-    }
-    return this.userRepository.find({
-      where: { id: In(ids) }
-    });
-  }
+  // async searchForUsers(text: string) {
+  //   const results = await this.usersSearchService.search(text);
+  //   const ids = results.map(result => result.id);
+  //   if (!ids.length) {
+  //     return [];
+  //   }
+  //   return this.userRepository.find({
+  //     where: { id: In(ids) }
+  //   });
+  // }
 
   async deleteUser(id: number) {
     const deleteResponse = await this.userRepository.delete(id);

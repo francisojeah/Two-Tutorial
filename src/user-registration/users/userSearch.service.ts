@@ -1,7 +1,6 @@
 import { Injectable } from '@nestjs/common';
 import { ElasticsearchService } from '@nestjs/elasticsearch';
 import { User } from "./entities/user.entity";
-import UserSearchResult from './types/userSearchResponse.interface';
 import UserSearchBody from './types/userSearchBody.interface';
 
 @Injectable()
@@ -77,7 +76,7 @@ export default class UsersSearchService {
   }
 
   async search(text: string) {
-    const body = await this.elasticsearchService.search<UserSearchResult>({
+    const body = await this.elasticsearchService.search({
       index: this.index,
       body: {
         query: {

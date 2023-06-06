@@ -72,14 +72,14 @@ export class UsersController {
     return this.usersService.findOne(+id);
   }
 
-  @UseInterceptors(CacheInterceptor)
-  @Get('es')
-  async getPosts(@Query('search') search: string) {
-    if (search) {
-      return this.usersService.searchForUsers(search);
-    }
-    return this.usersService.findAll();
-  }
+  // @UseInterceptors(CacheInterceptor)
+  // @Get('es')
+  // async getPosts(@Query('search') search: string) {
+  //   if (search) {
+  //     return this.usersService.searchForUsers(search);
+  //   }
+  //   return this.usersService.findAll();
+  // }
     
 
   //@UseGuards(JwtAuthGuard, UserGuard)
